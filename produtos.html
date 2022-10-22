@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./style/products.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+    <header>
+     <a class="imgheader" href="metricas.html"><img  src="./assets/grafico.svg"></a>
+     <a class="imgheader" href="despesas.html"><img  src="./assets/despesas.svg" ></a>
+     <a class="imgheader" href="produtos.html"><img  src="./assets/produtos.svg"></a>
+     <a class="imgheader" href="home.html"><img  src="./assets/casa.svg"> </a>
+     <a class="imgheader" href="index.html"><img  src="./assets/sair.svg"> </a>
+    </header>
+
+    <section class="containerprodutos">
+       <div id="boxadd" style="display: flex; align-items: center; justify-content: center;" onclick="abrirCadastro()" class="productbox">
+            <img style= "width: 40%; height: 55%;" src="./assets/32360.png" alt="" srcset="">
+            <div class="botoes">
+            </div>
+        </div>  
+    </section> 
+    <div class="dn" id="cadastro">
+        <button onclick="fecharCadastro()" id="fechar">X</button>
+        <div id="esquerdacadastro">
+
+            <div onclick="abrirmfotos(imgcadastro)" id="uploadfoto">
+                <img style="width: 200px;" id="semfoto" src="./assets/upload.png" alt="">
+            </div>
+            <form>
+              <legend> Valor de Compra:</legend>
+                <input id="valorCompra" type="number" name="" id="" placeholder="R$ ">
+            </form>
+        </div>
+        <div id="direitacadastro"> 
+            <form action="">
+                <legend style="margin-top: 2%;"> Nome do Veículo: </legend>
+                <input id="nome" type="text">
+                
+                <div style="margin-top: 5%;">
+                Ano: <input id="ano" style="width: 100px;" type="number">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Cor: <input id="cor" style="width: 100px;" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Placa: <input id="placa" style="width: 100px;" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Renavam: <input id="renavam" style="width: 150px;" type="text">
+            </div>
+            <div style=" width: 100%; margin-top: 5%;">
+                Fornecedor: <input id="fornecedor" style="width: 300px;" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Data da compra: <input id="dataCompra" style="width: 300px;" type="date">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style=" width: 100%; margin-top: 5%;">
+                Fipe: <input id="linkFipe" style="width: 500px;" type="url">
+            </div>
+            <div style=" width: 100%; margin-top: 2%;">
+                Detran: <input id="linkDetran" style="width: 485px;" type="url">
+            </div>
+            <input id="btncadastrar" value="Cadatrar 🧷" onclick="cadastrar(); fecharCadastro()" type="button">
+    
+            </form>
+        </div>
+    </div>
+
+    <div class="dn" id="objeto">
+        <button onclick="fecharobjeto()" id="fechar">X</button>
+        <div id="esquerdacadastro">
+
+            <div id="fotocarroobj">
+                
+            </div>
+            <form>
+              <legend> Valor de Compra:</legend>
+                <input type="number" name="" id="valorCompraobj" placeholder="R$ ">
+            </form>
+        </div>
+        <div id="direitacadastro"> 
+            <form action="">
+                <legend style="margin-top: 2%;"> Nome do Veículo: </legend>
+                <input id="nomeobj" type="text">
+                
+                <div style="margin-top: 5%;">
+                Ano: <input id="anoobj" style="width: 100px;" type="number">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Cor: <input id="corobj" style="width: 100px;" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Placa: <input id="placaobj" style="width: 100px;" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Renavam: <input id="renavamobj" style="width: 150px;" type="text">
+            </div>
+            <div style=" width: 100%; margin-top: 5%;">
+                Fornecedor: <input id="fornecedorobj" style="width: 300px;" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Data da compra: <input id="dataCompraobj" style="width: 300px;" type="date">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div style=" width: 100%; margin-top: 5%;">
+                Fipe: <input id="linkFipeobj" style="width: 500px;" type="url">
+            </div>
+            <div style=" width: 100%; margin-top: 2%;">
+                Detran: <input id="linkDetranobj" style="width: 485px;" type="url">
+            </div>
+            <input id="btnatualizar" onclick="atualizar()" value="Atualizar 🧷" type="button">
+    
+            </form>
+        </div>
+    </div>
+
+    <div class="dn" id="painel">
+        <button onclick="fecharpainel()" id="fechar">X</button>
+        <div id="esquerdacadastro">
+            <div id="fotocarro">
+            </div>
+            <p style="font-size: 50px" id="namecar">NameCar</p>
+            <p id="carInfos">Ano: AnoCar &nbsp;&nbsp; Cor: CorCar&nbsp;&nbsp;Placa: PlacaCar&nbsp;&nbsp; </p>
+            <div id="fipeedetran">
+               <a target="_blank" id="imagedetran"><img class="imgsdetranefipe" src="./assets/toppng.com-detran-rs-logo-vector-free-400x400.png" alt="" srcset=""></a> 
+                <a target="_blank" id="imagefipe"><img class="imgsdetranefipe"  src="./assets/tabela-fipe.jpg" alt=""></a> 
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; width: 100%; height: 100%; border-left: 1px solid black;">
+            <div style="width: 49% ; text-align: center; height: 100%;" id="gastos">
+                <p>Resumo</p><br>
+                <div id="containerresumo">
+                </div>
+            </div>
+
+           <div style="width: 49%;text-align: center; height: 100%; text-align: center; border-left: 1px solid black;"  id="receitas">
+            <p style="font-size: 20px;">Gastos:</p> <br>
+            <div id="containergastos">
+            </div>
+            <div style="float: right; margin: 10px;"> 
+            <img onclick="abrirCadastroGasto()" style="width: 40px; height: 40px;"src="./assets/32360.png" alt="" srcset="">
+            </div>
+           
+            
+           </div>
+           </div>
+        </div>
+
+    <div id="mfotos" class="dn">
+        <button onclick="fecharmfotos()">X</button>
+        <div>
+            <div style="text-align: center;"><input id="barraPesquisa" type="search" placeholder="Pesquisar 🔎"> <button id="resetfotos">↪</button></div>
+            <div id="containerfotos">
+            </div>
+         <form id="upload-form" action="" method="post" enctype="multipart/form-data"> 
+            <div  style="display: flex;">
+            <input  type="file" name="file" id="upload">
+            <input id="alt" style=" width:200px; margin-left: 20px; height:40px;"  placeholder="nome" type="text">
+            <input value="📤"  id="submit" type="submit">
+        </div>
+        </form>  
+        </div>
+        
+    </div>
+
+    <div class="dn" id="cadastrogasto">
+        <form id="cadastroform" action="">
+            <div style="margin-bottom: 20px;">
+            Prestador:
+            <select id="prestador" name="serviço" id="selectserviço">
+                <option selected disabled value="">Seleione o Prestador</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            Descrição:
+            <input style="width: 65%;" type="text" name="" id="descriçãoserviço">
+        </div>
+        <div style="margin-bottom: 20px;" >
+            Data:
+            <input style="width: 30%;" type="date" name="" id="dataserviço">
+        </div>
+        <div>
+            Valor: R$
+            <input style="width: 65%;" type="number" name="" id="valorserviço">
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <input style="margin-left: 10px;" id="btncadastrargasto" value="Cadatrar 🧷" onclick="adicionargasto(), fecharCadastroGasto()" type="button">
+            <input style="margin-left: 5px; width: 40px;" id="btncadastrargasto" value="❌" onclick=" fecharCadastroGasto()" type="button">
+        </div>
+        </form>
+    </div>
+
+    <script src="./script/script.js"></script>
+    <script src="./script/produtos.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/despesas.css">
+    
+</head>
+<body>
+    <header>
+     <a class="imgheader" href="metricas.html"><img  src="./assets/grafico.svg"></a>
+     <a class="imgheader" href="despesas.html"><img  src="./assets/despesas.svg" ></a>
+     <a class="imgheader" href="produtos.html"><img  src="./assets/produtos.svg"></a>
+     <a class="imgheader" href="home.html"><img  src="./assets/casa.svg"> </a>
+     <a class="imgheader" href="index.html"><img  src="./assets/sair.svg"> </a>
+    </header>
+    <div style="display: flex; width: 100%; height: 1000px;">
+        <div style="width: 50%; height: 100%; text-align: center;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            <img onclick="abrirmcserviço()" style="width: 40px; position:absolute; left: 30px; top: 90px" src="./assets/32360.png" alt="" srcset="">
+            <p style="font-size: 30px;" >
+                Fornecedor de Serviços:
+            </p>
+            <div id="containerserviços">
+                
+                </div>
+            </div>
+            <div style="width: 50%">
+                <div id="painelserviço" style="width: 100%;">
+                </div>
+                <div id="listagastos" style="border-right: 2px solid black; width: 100%; text-align: center;">
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="dn" id="mcserviço">
+        <input id="nomeserviço" style="width: 75%; height: 50px;" placeholder="Nome" type="text">
+        <input onclick="fecharmcserviço(); cadastrarserviço();" id="adicionarserviço" style="width: 100px; margin-left: 10px;" type="submit" value="Adicionar 🧷">
+    </div>
+    <script src="./script/script.js"></script>
+    <script src="./script/gastos.js"></script>
+</body>
+</html>
