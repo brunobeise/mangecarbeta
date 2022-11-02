@@ -7,40 +7,74 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/despesas.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     
 </head>
-<body>
-    <header>
-     <a class="imgheader" href="metricas.html"><img  src="./assets/grafico.svg"></a>
-     <a class="imgheader" href="despesas.html"><img  src="./assets/despesas.svg" ></a>
-     <a class="imgheader" href="produtos.html"><img  src="./assets/produtos.svg"></a>
-     <a class="imgheader" href="home.html"><img  src="./assets/casa.svg"> </a>
-     <a class="imgheader" href="index.html"><img  src="./assets/sair.svg"> </a>
-    </header>
-    <div style="display: flex; width: 100%; height: 1000px;">
-        <div style="width: 50%; height: 100%; text-align: center;font-family: Verdana, Geneva, Tahoma, sans-serif;">
-            <img onclick="abrirmcserviço()" style="width: 40px; position:absolute; left: 30px; top: 90px" src="./assets/32360.png" alt="" srcset="">
-            <p style="font-size: 30px;" >
-                Fornecedor de Serviços:
-            </p>
-            <div id="containerserviços">
-                
-                </div>
-            </div>
-            <div style="width: 50%">
-                <div id="painelserviço" style="width: 100%;">
-                </div>
-                <div id="listagastos" style="border-right: 2px solid black; width: 100%; text-align: center;">
-                </div>
-            </div>
+<body class="p-0 m-0">
+    <header class="container-fluid">
+        <a href="metricas.html">  <i  class="bi bi-bar-chart-fill mx-3"></i></a>
+        <a href="despesas.html">  <i  class="bi bi-cash-stack mx-3"></i></a>
+         <a href="produtos.html"> <i  class="bi bi-car-front-fill mx-3"></i></a>
+        <a href="index.html">  <i  class="bi bi-box-arrow-right mx-3"></i></a>
+         </header>
+
+         <div class="container-fluid p-2 ">
+            <div class="row h-100">
+                <div class="col-6 h-100 text-center">
+                    <div id="add">
+                        
+                    </div>
+                        <i onclick="abrirmcserviço()" id="add" class="bi bi-plus-circle fs-3 text"></i>
+                        <p style="font-size: 30px;" >
+                            Fornecedor de Serviços:
+                        </p>
+                        <form action="">
+                            <label for="mostrar" class="col-form-label">Calcular Total:</label>
+                            <select name="mostrar" id="mostrarserviços">
+                                <option value="todos">Tudo</option>
+                                <option value="30d">Últimos 30 dias</option>
+                                <option value="mesAtual">Mês Atual</option>
+                                <option value="ultimoMes">Último Mês</option>
+                            </select>
+                        </form><br>
+                        <div id="containerserviços">
+                            
+                            </div>
+                        </div>
+                        <div class="col-6 h-100 text-center">
+                            <br>
+                             <form id="filtergastos" action="">
+
+                        <label for="mostrar" class="col-form-label">Mostrar:</label>
+                        <select name="mostrar" id="mostrargasto">
+                            <option value="todos">Todos</option>
+                            <option value="30d">Últimos 30 dias</option>
+                            <option value="mesAtual">Mês Atual</option>
+                            <option value="ultimoMes">Último Mês</option>
+                        </select>
+                    </form><br>
+                            <div id="painelserviço" style="width: 100%;">
+                            </div>
+                            <div class="text-center" id="listagastos">
+                            </div>
             
-        </div>
-        
-    </div>
-    <div class="dn" id="mcserviço">
-        <input id="nomeserviço" style="width: 75%; height: 50px;" placeholder="Nome" type="text">
-        <input onclick="fecharmcserviço(); cadastrarserviço();" id="adicionarserviço" style="width: 100px; margin-left: 10px;" type="submit" value="Adicionar 🧷">
-    </div>
+    
+                    </div>
+
+
+                </div>
+                
+
+
+            </div>
+
+    <dialog class="p-4" id="mcserviço">
+        <input id="nomeserviço" style="width: 65%; height: 50px;" placeholder="Nome" type="text">
+        <input onclick="fecharmcserviço(); cadastrarserviço();" id="adicionarserviço" style="width: 130px; margin-left: 10px;" type="submit" value="Adicionar 🧷">
+        <input onclick="fecharmcserviço();" style="padding: 0; width: 40px; margin-left: 10px;" type="submit" value="❌">
+    </dialog>
     <script src="./script/script.js"></script>
     <script src="./script/gastos.js"></script>
 </body>

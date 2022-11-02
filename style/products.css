@@ -12,7 +12,7 @@
     padding: 20px;
     width: 20%;
     max-width: 300px;
-    height: 200px;
+    height: 240px;
     min-width: 300px;
     text-align: center;
     border-radius: 10%;
@@ -81,12 +81,12 @@ margin-top: 5px;
 #boxadd:hover {
     transform: scale(1.02);
     cursor: pointer;
-    height: 200px;
+    height: 240px;
 }
 
 .productbox:hover {
     transform: scale(1.02);
-    height: 250px;
+    height: 280px;
 }
 .productbox>img:hover {
     transform: scale(1.02);
@@ -95,91 +95,76 @@ margin-top: 5px;
 
 
 
-#cadastro {
-    position: fixed;
-    width: 94vw;
-    height: 84vh;
-    padding: 10px;
-    box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.50);
-    background-color: #fcfcfc;
-    top: 50%;
-    left: 50%;
-    margin-top: -42vh;
-    margin-left: -47vw;
+#cadastro, #objeto {
+    position: absolute;
+    padding: 30px;
+    width: 90%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.30);
+}
+
+
+#cadastro::backdrop, #painel::backdrop, #cadastrogasto::backdrop, #objeto::backdrop {
+    background-color: rgba(0, 0, 0, 0.365);
+    backdrop-filter: blur(2px);
 }
 
 #fechar {
     float: left;
-    width: 2%;
-    height: 3%;
-    border: 1px solid black;
-    background-color: white;
-    
+    width: 5%;
+    height: 5%;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
 }
 
 #fechar:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
-#esquerdacadastro {
-    width: 40%;
-    text-align: center;
-}
 
-#direitacadastro {
-    width: 60%;
-    height: 100%;
-    align-items: center;
-    padding-left: 10px;
+
+
+
+
+.boxshadow {
+    box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.30);
 }
 
 #uploadfoto {
-    width: 60%;
-    height: 40%;
-    box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.30);
-    margin-top: 10%;
-    margin-left: 20%;
-    margin-bottom: 20%;
-    transition: all 200ms ease;
-    align-items: center;
+    width: 50%;
+    height: 50%;
+    text-align: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 80px;
 }
 
 #uploadfoto > img {
-    width: 100%;
+    width: 200%;
+
 }
 
-#uploadfoto:hover {
-    transform: scale(1.02);
+#uploadfoto2{
+    box-shadow: none;
+}
+
+#uploadfoto:hover{
     cursor: pointer;
-
+    transform: scale(1.02);
 }
 
-#objeto {
-    position: fixed;
-    width: 94vw;
-    height: 84vh;
-    padding: 10px;
-    box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.50);
-    background-color: #fcfcfc;
-    top: 50%;
-    left: 50%;
-    margin-top: -42vh;
-    margin-left: -47vw;
-}
 
 #painel {
-    position: fixed;
-    width: 94vw;
-    height: 84vh;
-    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    padding: 30px;
     box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.50);
     background-color: #fcfcfc;
-    top: 50%;
-    left: 50%;
-    margin-top: -42vh;
-    margin-left: -47vw;
+    height: 90%;
+    min-width: 90%;
 }
 
 #fipeedetran {
@@ -202,22 +187,20 @@ cursor: pointer;
 }
 
 #mfotos {
-    width: 600px;
-    height: 730px;
+    max-width: 600px;
+    max-height: 700px;
     background-color: rgb(240, 240, 240);
-    position: fixed;
-    left: 35%;
-    bottom: 10%;
-    padding: 10px;
+    border: none;
+    border-radius: 10px;
 }
 
 #containerfotos {
-    height: 620px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
     background-color: white;
-    overflow:auto; 
+    overflow:hidden; 
 }
 
 .boxfoto {
@@ -243,16 +226,12 @@ cursor: pointer;
     transform: scale(1.02);
 }
 
-#fotocarro>img {
-    width: 380px;
-    margin-top: 50px;
-    margin-bottom: -20px;
+#fotocarro>img, #lugarfoto>img {
+    width: 90%;
 }
 
 #fotocarroobj>img {
-    width: 450px;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    width: 90%;
 }
 
 #fotocarroobj>img:hover {
@@ -283,20 +262,10 @@ cursor: pointer;
     transform: scale(1.01);
 }
 
-#containergastos, #conttainerresumo {
-    width: 100%;
-    height: 90%;
-    text-align: center;
-}
 
 #cadastrogasto {
-    position: absolute;
-    top: 350px;
-    right: 100px;
     background-color: white;
     box-shadow: -2px 0px 17px 0px rgba(0,0,0,0.50);
-    height: 300px;
-    width: 400px;
     text-align: left;
     padding: 20px;
 }
@@ -333,10 +302,9 @@ cursor: pointer;
     border: 2px solid greenyellow;
 }
 .preçosugeridotext {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .margem {
-    width: 40px;
-    height: 30px;
+max-width: 50px;
 }

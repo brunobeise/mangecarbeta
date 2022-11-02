@@ -141,53 +141,50 @@ document.addEventListener('DOMContentLoaded', () => {
 // funcoes modal
 
 function abrirCadastro() {
-    cadastro.classList.remove('dn')
-    cadastro.classList.add('df')
+    document.querySelector("#uploadfoto").classList.add('boxshadow')
+    cadastro.showModal()
     document.getElementById('nome').value=''
     document.getElementById('ano').value=''
     imgcadastro.innerHTML=""
-    imgcadastro.appendChild(semfoto)
 }
 
 function fecharCadastro() {
-    cadastro.classList.remove('df')
-    cadastro.classList.add('dn')
+    cadastro.close()
 }
 
 function abrirobjeto() {
     fecharpainel()
-    objeto.classList.remove('dn')
-    objeto.classList.add('df')
+    objeto.showModal()
 }
 
 function fecharobjeto() {
-    objeto.classList.remove('df')
-    objeto.classList.add('dn')
+    objeto.close()
 }
 
 function abrirpainel() {
-    painell.classList.remove('dn')
-    painell.classList.add('df')
+    painell.showModal()
 }
 
 function fecharpainel() {
-    painell.classList.remove('df')
-    painell.classList.add('dn')
+    painell.close()
 }
 
 function abrirmfotos(boxid) {
-    mfotos.classList.remove('dn')
+    mfotos.showModal()
     modalfotos(boxid)
 }
 
 function fecharmfotos() {
 
     containerfotos.innerHTML=''
-    mfotos.classList.add('dn')
+    mfotos.close()
 }
 
 function abrirCadastroGasto() {
-   document.querySelector('#cadastrogasto').classList.remove('dn')
+   document.querySelector('#descriçãoserviço').value=""
+   document.querySelector('#dataserviço').value=""
+   document.querySelector('#valorserviço').value=""
+   document.querySelector('#cadastrogasto').showModal()
    document.querySelector('#prestador').innerHTML='<option selected disabled value="">Seleione o Prestador</option>'
    serviços.forEach((obj, i) => {
    const option = document.createElement('option')
@@ -198,7 +195,7 @@ function abrirCadastroGasto() {
 }
 
 function fecharCadastroGasto() {
-    document.querySelector('#cadastrogasto').classList.add('dn')
+    document.querySelector('#cadastrogasto').close()
 }
 
 
@@ -215,14 +212,23 @@ function cadastrar(){
         cor: (document.getElementById('cor')).value,
         placa: (document.getElementById('placa')).value,
         renavam: (document.getElementById('renavam')).value,
-        fornecedor: (document.getElementById('fornecedor')).value,
+        fornecedor: "",
         dataCompra: (document.getElementById('dataCompra')).value,
         valorCompra: Number((document.getElementById('valorCompra')).value),
-        linkfipe: (document.getElementById('linkFipe')).value,
+        linkfipe: "",
         linkdetran: (document.getElementById('linkDetran')).value,
         foto: srcfoto,
         gastos: []
     }
+    const novogasto = {
+        carro: (document.getElementById('nome')).value,
+        prestador: "COMPRA",
+        descrição: "Compra do Veículo",
+        data: (document.getElementById('dataCompra')).value,
+        valor: Number((document.getElementById('valorCompra')).value) 
+    }
+
+    novocarro.gastos.push(novogasto)
     carros.push(novocarro)
     localStorage.setItem('carros', JSON.stringify(carros))
     adicionarbox(carros.length-1)
@@ -283,16 +289,6 @@ function adicionarbox (id) {
 }
 function editarobjeto(id){  
     abrirobjeto()
-    document.getElementById('nomeobj').value = carros[id].nome
-    document.getElementById('valorCompraobj').value = carros[id].valorCompra
-    document.getElementById('anoobj').value = carros[id].ano
-    document.getElementById('corobj').value = carros[id].cor
-    document.getElementById('placaobj').value = carros[id].placa
-    document.getElementById('renavamobj').value = carros[id].renavam
-    document.getElementById('fornecedorobj').value = carros[id].fornecedor
-    document.getElementById('dataCompraobj').value = carros[id].dataCompra
-    document.getElementById('linkFipeobj').value = carros[id].linkfipe
-    document.getElementById('linkDetranobj').value = carros[id].linkdetran
     fotoobj.innerHTML=""
     fotoobj.appendChild(image)
     image.setAttribute('src', `${carros[id].foto}`)   
@@ -300,6 +296,14 @@ function editarobjeto(id){
         abrirmfotos(fotoobj)
         
     }
+    document.getElementById('nomeobj').value = carros[id].nome
+    document.getElementById('valorCompraobj').value = carros[id].valorCompra
+    document.getElementById('anoobj').value = carros[id].ano
+    document.getElementById('corobj').value = carros[id].cor
+    document.getElementById('placaobj').value = carros[id].placa
+    document.getElementById('renavamobj').value = carros[id].renavam
+    document.getElementById('dataCompraobj').value = carros[id].dataCompra
+    document.getElementById('linkDetranobj').value = carros[id].linkdetran
     objid = id
     }
 
@@ -311,13 +315,13 @@ function atualizar(){
         cor: (document.getElementById('corobj')).value,
         placa: (document.getElementById('placaobj')).value,
         renavam: (document.getElementById('renavamobj')).value,
-        fornecedor: (document.getElementById('fornecedorobj')).value,
+        fornecedor: "",
         dataCompra: (document.getElementById('dataCompraobj')).value,
         valorCompra: Number((document.getElementById('valorCompraobj')).value),
-        linkfipe: (document.getElementById('linkFipeobj')).value,
+        linkfipe: "",
         linkdetran: (document.getElementById('linkDetranobj')).value,
         foto: srcfoto,
-        gastos: []
+        gastos: carros[objid].gastos
         }
         const image = document.createElement("img");
         image.setAttribute('src', srcfoto)
@@ -332,13 +336,13 @@ function atualizar(){
         cor: (document.getElementById('corobj')).value,
         placa: (document.getElementById('placaobj')).value,
         renavam: (document.getElementById('renavamobj')).value,
-        fornecedor: (document.getElementById('fornecedorobj')).value,
+        fornecedor: "",
         dataCompra: (document.getElementById('dataCompraobj')).value,
         valorCompra: Number((document.getElementById('valorCompraobj')).value),
-        linkfipe: (document.getElementById('linkFipeobj')).value,
+        linkfipe: "",
         linkdetran: (document.getElementById('linkDetranobj')).value,
         foto: carros[objid].foto,
-        gastos: []
+        gastos: carros[objid].gastos
     }}
     localStorage.setItem('carros', JSON.stringify(carros))
     fecharobjeto()
@@ -391,11 +395,11 @@ function remover(id){
     vcompra.innerText=`Valor Compra: R$${((carros[id].valorCompra).toFixed(2)).replace('.',',')}`
     resumo.appendChild(vcompra)
     const totalgastos = document.createElement('p')
-    totalgastos.innerText=`Total Gasto: R$${(soma.toFixed(2)).replace('.',',')}`
+    totalgastos.innerText=`Total Gasto: R$${((soma-carros[id].valorCompra).toFixed(2)).replace('.',',')}`
     resumo.appendChild(totalgastos)
 
     const calculomargem = document.createElement('p')
-    calculomargem.innerHTML=`Margem de lucro de: <input id="m1" value="5" type="number" class="margem">% a  <input id="m2" value="15" type="number" class="margem">%`
+    calculomargem.innerHTML=`Margem de lucro de: <input id="m1" value="5" type="number" class="margem">% a  <input id="m2" value="10" type="number" class="margem">%`
     resumo.appendChild(calculomargem)
 
     const m1 = Number(((document.querySelector('#m1').value)/100)+1)
@@ -410,7 +414,7 @@ function remover(id){
     const valorsugerido = document.createElement('p')
     valorsugerido.classList.add('preçosugeridotext')
     pdiv.classList.add('preçosugeridotext')
-    valorsugerido.innerText=`R$${(((carros[id].valorCompra+soma)*m1).toFixed(2)).replace('.',',')} ~~ R$${(((carros[id].valorCompra+soma)*m2).toFixed(2)).replace('.',',')}`
+    valorsugerido.innerText=`R$${((soma*m1).toFixed(2)).replace('.',',')} ~~ R$${((soma*m2).toFixed(2)).replace('.',',')}`
 
     document.querySelector('#m1').oninput=(() => {
         const m1nv = Number(((document.querySelector('#m1').value)/100)+1)
@@ -479,6 +483,7 @@ function modalfotos(boxid){
 }  
 
 function selecionarfoto(fotoid, boxid){
+    document.querySelector("#uploadfoto").classList.remove('boxshadow')
     novafoto = document.createElement('img')
     srcfoto = `${fotoscarros[fotoid].foto}`
     novafoto.src = srcfoto
@@ -498,24 +503,205 @@ function adicionargasto(){
    const arraygastos = carros[carroaberto].gastos
    arraygastos.push(novogasto)
    localStorage.setItem('carros', JSON.stringify(carros))
-   reloadgastos(carroaberto)
+   painell.close()
+   painel(carroaberto)
 }
 
 function reloadgastos(id){
     document.querySelector('#containergastos').innerHTML=""
     const arraygastos = carros[id].gastos
-    if (arraygastos != ""){arraygastos.forEach(obj => {
+    if (arraygastos != ""){arraygastos.forEach((obj, i) => {
         const divNova = document.createElement('div')
         divNova.classList.add('gasto')
         divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
         const p = document.createElement('p')
-        p.innerText=`${obj.descrição}`
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${id},${i})'class="bi bi-trash-fill"></i>`
         divNova.appendChild(p)
         document.querySelector('#containergastos').appendChild(divNova)
     })}
     
    
 }
+
+function excluirgasto(carro, id){
+    console.log(carros[carro].gastos);
+    const retorno = confirm(`Deseja excluir gasto?` )
+    if(retorno){carros[carro].gastos = carros[carro].gastos.filter((gasto, i) => i!=id)
+        console.log(carros[carro].gastos);
+        localStorage.setItem('carros', JSON.stringify(carros))
+        reloadgastos(carro)
+    
+    }
+}   
+let arraymostrado
+const ordenar = document.querySelector('#ordenargasto')
+const mostrar = document.querySelector('#mostrargasto')
+ordenar.oninput=(() => {
+
+    console.log(arraymostrado);
+    
+    const select = ordenar.options[ordenar.selectedIndex].value;
+
+   
+
+    if(select == "prestador"){
+        arraymostrado = arraymostrado.sort((a,b) => {
+            if (a.prestador > b.prestador) {
+                return -1;
+              }
+              if (a.prestador < b.prestador) {
+                return 1;
+              }
+            
+        })
+       document.querySelector('#containergastos').innerHTML=""
+        const arraygastos = arraymostrado
+        if (arraygastos != ""){arraygastos.forEach((obj, i) => {
+        const divNova = document.createElement('div')
+        divNova.classList.add('gasto')
+        divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
+        const p = document.createElement('p')
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${carroaberto},${i})'class="bi bi-trash-fill"></i>`
+        divNova.appendChild(p)
+        document.querySelector('#containergastos').appendChild(divNova)
+    })} 
+    }
+    if(select == "valor"){
+       arraymostrado = arraymostrado.sort((a,b) => {
+            if (a.valor > b.valor) {
+                return -1;
+              }
+              if (a.valor < b.valor) {
+                return 1;
+              }
+            
+        })
+       document.querySelector('#containergastos').innerHTML=""
+        const arraygastos = arraymostrado
+        if (arraygastos != ""){arraygastos.forEach((obj, i) => {
+        const divNova = document.createElement('div')
+        divNova.classList.add('gasto')
+        divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
+        const p = document.createElement('p')
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${carroaberto},${i})'class="bi bi-trash-fill"></i>`
+        divNova.appendChild(p)
+        document.querySelector('#containergastos').appendChild(divNova)
+    })}     
+    }
+    if(select == "data"){
+        arraymostrado = arraymostrado.sort((a,b) => {
+            if (a.data > b.data) {
+                return -1;
+              }
+              if (a.data < b.data) {
+                return 1;
+              }
+            
+        })
+        document.querySelector('#containergastos').innerHTML=""
+        const arraygastos = arraymostrado
+        if (arraygastos != ""){arraygastos.forEach((obj, i) => {
+        const divNova = document.createElement('div')
+        divNova.classList.add('gasto')
+        divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
+        const p = document.createElement('p')
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${carroaberto},${i})'class="bi bi-trash-fill"></i>`
+        divNova.appendChild(p)
+        document.querySelector('#containergastos').appendChild(divNova)
+    })}  
+    }
+})
+mostrar.oninput=(() => {
+
+    const date = new Date()
+    dia = String(date.getDate()).padStart(2, '0');
+    mes = String(date.getMonth() + 1).padStart(2, '0');
+    ano = date.getFullYear();
+
+    data30 = `${ano}-${mes}-${dia}`;
+    data90 = `${ano}-${mes-3}-${dia}`;
+    
+    const mespassado = new Date(dataatual)
+    const monthatual = date.toLocaleString('default', { month: 'long' });
+    const monthpassado = mespassado.toLocaleString('default', { month: 'long' });
+
+    const select = mostrar.options[mostrar.selectedIndex].value;
+    if(select == "todos"){
+        arraymostrado = carros[carroaberto].gastos
+        reloadgastos(carroaberto)
+    }
+    if(select == "30d"){
+        const ultimos30 = carros[carroaberto].gastos.filter(obj => 
+            obj.data > data30
+        )  
+        document.querySelector('#containergastos').innerHTML=""
+    const arraygastos = ultimos30
+    if (arraygastos != ""){arraygastos.forEach((obj, i) => {
+        const divNova = document.createElement('div')
+        divNova.classList.add('gasto')
+        divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
+        const p = document.createElement('p')
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${carroaberto},${i})'class="bi bi-trash-fill"></i>`
+        divNova.appendChild(p)
+        document.querySelector('#containergastos').appendChild(divNova)
+        arraymostrado = arraygastos
+    })}
+    }
+    if(select == "mesAtual"){
+
+        const mesatual = carros[carroaberto].gastos.filter(obj => { 
+            const data = new Date(obj.data)
+            const month = data.toLocaleString('default', { month: 'long' });
+            return month == monthatual
+        }
+            
+        )  
+
+        document.querySelector('#containergastos').innerHTML=""
+    const arraygastos = mesatual
+    if (arraygastos != ""){arraygastos.forEach((obj, i) => {
+        const divNova = document.createElement('div')
+        divNova.classList.add('gasto')
+        divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
+        const p = document.createElement('p')
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${carroaberto},${i})'class="bi bi-trash-fill"></i>`
+        divNova.appendChild(p)
+        document.querySelector('#containergastos').appendChild(divNova)
+        arraymostrado = arraygastos
+    })}
+        
+    }
+    if(select == "ultimoMes"){
+
+        const ultimomes = carros[carroaberto].gastos.filter(obj => { 
+            const data = new Date(obj.data)
+            const month = data.toLocaleString('default', { month: 'long' });
+            return month == monthpassado
+        }
+            
+        )  
+
+        document.querySelector('#containergastos').innerHTML=""
+    const arraygastos = ultimomes
+    if (arraygastos != ""){arraygastos.forEach((obj, i) => {
+        const divNova = document.createElement('div')
+        divNova.classList.add('gasto')
+        divNova.innerHTML=`${obj.prestador} | ${(obj.data).split('-').reverse().join('/')} | R$${(obj.valor).toFixed(2)}`
+        const p = document.createElement('p')
+        p.innerHTML=`${obj.descrição} | <i onclick='excluirgasto(${carroaberto},${i})'class="bi bi-trash-fill"></i>`
+        divNova.appendChild(p)
+        document.querySelector('#containergastos').appendChild(divNova)
+        arraymostrado = arraygastos
+    })}
+        
+    }
+
+})
+   
+     
+
+    
+
 
 //uploadimg imgur
 const alt = ""

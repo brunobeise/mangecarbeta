@@ -32,19 +32,26 @@
 }
 
 #mcserviço {
-    position: absolute;
-    top: 80px;
-    left: 100px;
-    width: 40%;
-    height: 80px;
+    padding: 20px;
+    width: 700px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     justify-content: left;
     align-items: center;
     padding-left: 10px;
     padding-top: 10px;
     background-color: white;
+    border: none;
+    border-radius: 5px;
 }
 
+#mcserviço::backdrop {
+    background-color: rgba(0, 0, 0, 0.542);
+    backdrop-filter: blur(3px);
+}
+
+#adicionarserviço:hover {
+    color: black;
+}
 #painelserviço {
     text-align: center;
     padding: 5px;

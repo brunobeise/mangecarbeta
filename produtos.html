@@ -8,15 +8,16 @@
     
     <link rel="stylesheet" href="./style/products.css">
     <link rel="stylesheet" href="./style/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
 
-    <header>
-     <a class="imgheader" href="metricas.html"><img  src="./assets/grafico.svg"></a>
-     <a class="imgheader" href="despesas.html"><img  src="./assets/despesas.svg" ></a>
-     <a class="imgheader" href="produtos.html"><img  src="./assets/produtos.svg"></a>
-     <a class="imgheader" href="home.html"><img  src="./assets/casa.svg"> </a>
-     <a class="imgheader" href="index.html"><img  src="./assets/sair.svg"> </a>
+    <header class="container-fluid">
+   <a href="metricas.html">  <i  class="bi bi-bar-chart-fill mx-3"></i></a>
+   <a href="despesas.html">  <i  class="bi bi-cash-stack mx-3"></i></a>
+    <a href="produtos.html"> <i  class="bi bi-car-front-fill mx-3"></i></a>
+   <a href="index.html">  <i  class="bi bi-box-arrow-right mx-3"></i></a>
     </header>
 
     <section class="containerprodutos">
@@ -26,144 +27,206 @@
             </div>
         </div>  
     </section> 
-    <div class="dn" id="cadastro">
-        <button onclick="fecharCadastro()" id="fechar">X</button>
-        <div id="esquerdacadastro">
-
-            <div onclick="abrirmfotos(imgcadastro)" id="uploadfoto">
-                <img style="width: 200px;" id="semfoto" src="./assets/upload.png" alt="">
-            </div>
-            <form>
-              <legend> Valor de Compra:</legend>
-                <input id="valorCompra" type="number" name="" id="" placeholder="R$ ">
-            </form>
-        </div>
-        <div id="direitacadastro"> 
-            <form action="">
-                <legend style="margin-top: 2%;"> Nome do Veículo: </legend>
-                <input id="nome" type="text">
+    <dialog class="container" id="cadastro">
+        <i onclick="fecharCadastro()" id="fechar" class="bi bi-x-square-fill"></i>
+        <div class="row">
+            <div id="lugarfoto" class="col-6 ">
+                <div onclick="abrirmfotos(imgcadastro)" class="container my-5 boxshadow" id="uploadfoto">
+                </div>
                 
-                <div style="margin-top: 5%;">
-                Ano: <input id="ano" style="width: 100px;" type="number">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Cor: <input id="cor" style="width: 100px;" type="text">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Placa: <input id="placa" style="width: 100px;" type="text">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Renavam: <input id="renavam" style="width: 150px;" type="text">
-            </div>
-            <div style=" width: 100%; margin-top: 5%;">
-                Fornecedor: <input id="fornecedor" style="width: 300px;" type="text">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Data da compra: <input id="dataCompra" style="width: 300px;" type="date">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div style=" width: 100%; margin-top: 5%;">
-                Fipe: <input id="linkFipe" style="width: 500px;" type="url">
-            </div>
-            <div style=" width: 100%; margin-top: 2%;">
-                Detran: <input id="linkDetran" style="width: 485px;" type="url">
-            </div>
-            <input id="btncadastrar" value="Cadatrar 🧷" onclick="cadastrar(); fecharCadastro()" type="button">
-    
-            </form>
-        </div>
-    </div>
 
-    <div class="dn" id="objeto">
-        <button onclick="fecharobjeto()" id="fechar">X</button>
-        <div id="esquerdacadastro">
-
-            <div id="fotocarroobj">
+            </div>
+            <div class="col-6">
+                <form action="">
+                    <div class="container">
+                    <div class="row g-4 align-items-center">
                 
-            </div>
-            <form>
-              <legend> Valor de Compra:</legend>
-                <input type="number" name="" id="valorCompraobj" placeholder="R$ ">
-            </form>
-        </div>
-        <div id="direitacadastro"> 
-            <form action="">
-                <legend style="margin-top: 2%;"> Nome do Veículo: </legend>
-                <input id="nomeobj" type="text">
-                
-                <div style="margin-top: 5%;">
-                Ano: <input id="anoobj" style="width: 100px;" type="number">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Cor: <input id="corobj" style="width: 100px;" type="text">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Placa: <input id="placaobj" style="width: 100px;" type="text">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Renavam: <input id="renavamobj" style="width: 150px;" type="text">
-            </div>
-            <div style=" width: 100%; margin-top: 5%;">
-                Fornecedor: <input id="fornecedorobj" style="width: 300px;" type="text">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                Data da compra: <input id="dataCompraobj" style="width: 300px;" type="date">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div style=" width: 100%; margin-top: 5%;">
-                Fipe: <input id="linkFipeobj" style="width: 500px;" type="url">
-            </div>
-            <div style=" width: 100%; margin-top: 2%;">
-                Detran: <input id="linkDetranobj" style="width: 485px;" type="url">
-            </div>
-            <input id="btnatualizar" onclick="atualizar()" value="Atualizar 🧷" type="button">
-    
-            </form>
-        </div>
-    </div>
+                        <div class="col-12">
+                            <label for="nome" class="col-form-label " >Nome do Veículo:</label>
+                            <input type="text" id="nome" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="ano" class="col-form-label " >Ano:</label>
+                            <input type="number" id="ano" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="cor" class="col-form-label " >Cor:</label>
+                            <input type="text" id="cor" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <label for="placa" class="col-form-label " >Placa:</label>
+                            <input type="text" id="placa" class="form-control">
+                        </div>
+                        <div class="col-7">
+                            <label for="renavam" class="col-form-label " >Renavam:</label>
+                            <input type="text" id="renavam" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="linkDetran" class="col-form-label " >Link Detran:</label>
+                            <input class="form-control" id="linkDetran" type="number" name="" >
+                        </div>
+                        <div class="col-12">
+                            <label for="dataCompra" class="col-form-label " >Data da Compra:</label>
+                            <input class="form-control"  id="dataCompra" type="date" name="" id="" placeholder="R$ ">
+                        </div>
+                        <div class="col-12">
+                        <label for="valorCompra" class="col-form-label " >Valor da Compra:</label>
+                        <input class="form-control" id="valorCompra" type="number" name="" id="" placeholder="R$ ">
+                    </div>
+                    <input id="btncadastrar" value="Cadatrar 🧷" onclick="cadastrar(); fecharCadastro()" type="button">
+                    
+                    </div>
+                </div>
 
-    <div class="dn" id="painel">
-        <button onclick="fecharpainel()" id="fechar">X</button>
-        <div id="esquerdacadastro">
-            <div id="fotocarro">
-            </div>
-            <p style="font-size: 50px" id="namecar">NameCar</p>
-            <p id="carInfos">Ano: AnoCar &nbsp;&nbsp; Cor: CorCar&nbsp;&nbsp;Placa: PlacaCar&nbsp;&nbsp; </p>
-            <div id="fipeedetran">
-               <a target="_blank" id="imagedetran"><img class="imgsdetranefipe" src="./assets/toppng.com-detran-rs-logo-vector-free-400x400.png" alt="" srcset=""></a> 
-                <a target="_blank" id="imagefipe"><img class="imgsdetranefipe"  src="./assets/tabela-fipe.jpg" alt=""></a> 
+
+                </form>
             </div>
         </div>
-        <div style="display: flex; flex-wrap: wrap; width: 100%; height: 100%; border-left: 1px solid black;">
-            <div style="width: 49% ; text-align: center; height: 100%;" id="gastos">
-                <p>Resumo</p><br>
-                <div id="containerresumo">
+        
+    </dialog>
+
+    <dialog id="objeto">
+       
+        <div class="row">
+            <div class="col-6 text-center">
+                <i onclick="fecharobjeto()" id="fechar" class="bi bi-x-square-fill"></i>
+                <div class="container my-5" id="fotocarroobj">
+                </div>
+                
+
+            </div>
+            <div class="col-6">
+                <form action="">
+                    <div class="container">
+                    <div class="row g-4 align-items-center">
+                
+                        <div class="col-12">
+                            <label for="nome" class="col-form-label " >Nome do Veículo:</label>
+                            <input type="text" id="nomeobj" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="ano" class="col-form-label " >Ano:</label>
+                            <input type="number" id="anoobj" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="cor" class="col-form-label " >Cor:</label>
+                            <input type="text" id="corobj" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <label for="placa" class="col-form-label " >Placa:</label>
+                            <input type="text" id="placaobj" class="form-control">
+                        </div>
+                        <div class="col-7">
+                            <label for="renavam" class="col-form-label " >Renavam:</label>
+                            <input type="text" id="renavamobj" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="linkDetran" class="col-form-label " >Link Detran:</label>
+                            <input class="form-control" id="linkDetranobj" type="number" name="" >
+                        </div>
+                        <div class="col-12">
+                            <label for="dataCompra" class="col-form-label " >Data da Compra:</label>
+                            <input class="form-control"  id="dataCompraobj" type="date" name="" id="" placeholder="R$ ">
+                        </div>
+                        <div class="col-12">
+                        <label for="valorCompra" class="col-form-label " >Valor da Compra:</label>
+                        <input class="form-control" id="valorCompraobj" type="number" name="" id="" placeholder="R$ ">
+                    </div>
+                    <input id="btnatualizar" value="Atualizar 🧷" onclick="atualizar();" type="button">
+                    
+                    </div>
+                </div>
+
+
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="container"  id="painel">
+        
+        <div class="row h-100">
+
+            <div id="esquerdacadastro" class="col-4 h-100 text-center">
+                <i onclick="fecharpainel()" id="fechar" class="bi bi-x-square-fill"></i>
+                <div class="mb-5" id="fotocarro">
+                </div>
+                <p style="font-size: 50px" id="namecar">NameCar</p>
+                <p id="carInfos">Ano: AnoCar &nbsp;&nbsp; Cor: CorCar&nbsp;&nbsp;Placa: PlacaCar&nbsp;&nbsp; </p>
+                <div id="fipeedetran">
+                   <a target="_blank" id="imagedetran"><img class="imgsdetranefipe" src="./assets/toppng.com-detran-rs-logo-vector-free-400x400.png" alt="" srcset=""></a> 
+                    <a target="_blank" id="imagefipe"><img class="imgsdetranefipe"  src="./assets/tabela-fipe.jpg" alt=""></a> 
                 </div>
             </div>
 
-           <div style="width: 49%;text-align: center; height: 100%; text-align: center; border-left: 1px solid black;"  id="receitas">
-            <p style="font-size: 20px;">Gastos:</p> <br>
-            <div id="containergastos">
-            </div>
-            <div style="float: right; margin: 10px;"> 
-            <img onclick="abrirCadastroGasto()" style="width: 40px; height: 40px;"src="./assets/32360.png" alt="" srcset="">
-            </div>
-           
+            <div style="border-left: 1px solid black;" class="col-4 text-center h-100">
+    
+            <h2>Resumo:</h2><br>
+            <div id="containerresumo">
+            </div>  
             
-           </div>
-           </div>
+            </div>
+
+            <div class="col-4 text-center h-100">
+                
+                <div style="text-align: center; height: 100%; text-align: center; border-left: 1px solid black;"  id="receitas">
+                    <h2>Gastos:</h2>
+                    <form action="">
+                        <label for="ordenar" class="col-form-label">Ordenar Por:  </label>
+                        <select name="ordenar" id="ordenargasto">
+                            <option value="data">Data</option>
+                            <option value="prestador">Prestador</option>
+                            <option value="valor">Valor</option>
+                        </select>
+                        <label for="mostrar" class="col-form-label">Mostrar:</label>
+                        <select name="mostrar" id="mostrargasto">
+                            <option value="todos">Todos</option>
+                            <option value="30d">Últimos 30 dias</option>
+                            <option value="mesAtual">Mês Atual</option>
+                            <option value="ultimoMes">Último Mês</option>
+                        </select>
+                    </form><br>
+                    <div id="containergastos">
+                    </div>
+                        <i onclick="abrirCadastroGasto()" class=" hover bi bi-plus-circle"></i>
+            
+            </div>
+        </div>
+        </dialog>
+
+    <dialog class="container" id="mfotos">
+        <div class="row text-center">
+        <i onclick="fecharmfotos()" id="fechar" class="bi bi-x-square-fill"></i>
+        <div class="col-12 mb-3">
+            <input id="barraPesquisa" type="search" placeholder="Pesquisar 🔎"> <button id="resetfotos">↪</button>
         </div>
 
-    <div id="mfotos" class="dn">
-        <button onclick="fecharmfotos()">X</button>
-        <div>
-            <div style="text-align: center;"><input id="barraPesquisa" type="search" placeholder="Pesquisar 🔎"> <button id="resetfotos">↪</button></div>
+        <div class="col-12 mb-3">
+            <form id="upload-form" action="" method="post" enctype="multipart/form-data"> 
+                <input  type="file" name="file" id="upload" required>
+                <div>
+                    <input id="alt" placeholder="Nome do Veículo" type="text" required>
+                    <input  value="🔼"  id="submit" type="submit">
+
+                </div>
+                
+            </form>  
+        </div>
+
+        <div class="col-12">
             <div id="containerfotos">
             </div>
-         <form id="upload-form" action="" method="post" enctype="multipart/form-data"> 
-            <div  style="display: flex;">
-            <input  type="file" name="file" id="upload">
-            <input id="alt" style=" width:200px; margin-left: 20px; height:40px;"  placeholder="nome" type="text">
-            <input value="📤"  id="submit" type="submit">
         </div>
-        </form>  
-        </div>
+
+        
+            
+         
         
     </div>
+        
+    </dialog>
 
-    <div class="dn" id="cadastrogasto">
+    <dialog id="cadastrogasto">
         <form id="cadastroform" action="">
             <div style="margin-bottom: 20px;">
             Prestador:
@@ -177,7 +240,7 @@
         </div>
         <div style="margin-bottom: 20px;" >
             Data:
-            <input style="width: 30%;" type="date" name="" id="dataserviço">
+            <input style="width: 50%;" type="date" name="" id="dataserviço">
         </div>
         <div>
             Valor: R$
@@ -188,7 +251,7 @@
             <input style="margin-left: 5px; width: 40px;" id="btncadastrargasto" value="❌" onclick=" fecharCadastroGasto()" type="button">
         </div>
         </form>
-    </div>
+    </dialog>
 
     <script src="./script/script.js"></script>
     <script src="./script/produtos.js"></script>

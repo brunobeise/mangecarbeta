@@ -3,6 +3,7 @@ body {
     padding: 0;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .dn {
@@ -18,6 +19,14 @@ p {
     font-size: large;
 }
 
+#add:hover, .hover:hover {
+    cursor: pointer;
+}
+
+.hover {
+    font-size: 30px;
+}
+
 header {
     background-color: rgba(26, 26, 26, 0.853);
     width: 100%;
@@ -25,18 +34,17 @@ header {
     display: flex;
     justify-content: end;
     align-items: center;
+    color: white;
+    font-size: 30px;
 }
 
-.imgheader {
-    margin-right: 2%;
-    height: 40%;
-    transition: all 100ms ease-in-out;
+header > a {
+    color: white;
+    transition: all 100ms ease;
 }
 
-.imgheader > img {
-    height: 100%;
-}
-.imgheader:hover, #adicionarserviço:hover{
+header > a:hover, #adicionarserviço:hover{
+    color: white;
     transform: scale(1.05);
     cursor: pointer;
 }
