@@ -420,7 +420,7 @@ function remover(id){
         const m1nv = Number(((document.querySelector('#m1').value)/100)+1)
         const m2nv = Number(((document.querySelector('#m2').value)/100)+1)
         console.log("oi");
-        valorsugerido.innerText=`R$${(((carros[id].valorCompra+soma)*m1nv).toFixed(2)).replace('.',',')} ~~ R$${(((carros[id].valorCompra+soma)*m2nv).toFixed(2)).replace('.',',')}`
+        valorsugerido.innerText=`R$${(((soma)*m1nv).toFixed(2)).replace('.',',')} ~~ R$${(((soma)*m2nv).toFixed(2)).replace('.',',')}`
 
     })
 
@@ -428,7 +428,7 @@ function remover(id){
         const m1nv = Number(((document.querySelector('#m1').value)/100)+1)
         const m2nv = Number(((document.querySelector('#m2').value)/100)+1)
         console.log("oi");
-        valorsugerido.innerText=`R$${(((carros[id].valorCompra+soma)*m1nv).toFixed(2)).replace('.',',')} ~~ R$${(((carros[id].valorCompra+soma)*m2nv).toFixed(2)).replace('.',',')}`
+        valorsugerido.innerText=`R$${(((soma)*m1nv).toFixed(2)).replace('.',',')} ~~ R$${(((soma)*m2nv).toFixed(2)).replace('.',',')}`
 
     })
 
